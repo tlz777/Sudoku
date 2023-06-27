@@ -18,5 +18,16 @@
     <ClCompile Include="Sudoku.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="generator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="solver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
