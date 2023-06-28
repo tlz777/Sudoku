@@ -1,4 +1,5 @@
 #include"common.h"
+
 // 分析需求 需要创建数独题目、格式化读入数独题目、解数独、重定向输出、控制数独难度
 int main(int argc, char* argv[]) {
     string help = "-h";
@@ -40,7 +41,32 @@ int main(int argc, char* argv[]) {
     }
     else if (!strcmp(SudokuPath.c_str(), argv[1])) {//文件读取数独
         if (argc == 3) {
-
+            string filePath = argv[2];
+            cout << filePath << endl;
+            ifstream fin;
+            fin.open(filePath, ios::in);
+            char buff;
+            int** input = new int* [9];
+            for (int i = 0; i < 9; i++) {
+                input[i] = new int[9];
+            }
+            //获取数独初始值
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    buff = fin.get();
+                    if (buff == EOF)
+                        return false;
+                    else if (buff != 10 && buff != ' ') {
+                        if (buff == '$')
+                            input[i][j] = 0;
+                        else
+                            input[i][j] = buff - '0';
+                    }
+                    else j--;
+                }
+            }
+            Solver* solver = new Solver(input);
+            solver->SolvePuzzle();
         }
         else cout << "incorrect number of parameters,please check number or use '-h' for help" << endl;
     }

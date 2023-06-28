@@ -75,6 +75,7 @@ void Generator::GenPuzzle(int m, int r_input) {
 void Generator::GenUniPuzzle() {
     init();
     GenEndgames(0);
+    print();
     vector<int> randomlist(81);
     iota(randomlist.begin(), randomlist.end(), 0);
     random_shuffle(randomlist.begin(), randomlist.end());
@@ -124,7 +125,6 @@ void Generator::print(){
         cout << endl << " -----------------------------------" << endl;
     }
     cout << endl;
-
 }
 int Generator::CheckSolve(vector<vector<int>>& pz, int n, int Nof_solution) {
     if (Nof_solution > 1) {
