@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
         }
         else cout << "incorrect number of parameters,please check number or use '-h' for help" << endl;
     }
-    else if (!strcmp(argv[1], "-n")) {//生成数独问题
+    else if (!strcmp(argv[1], SudokuGameNum.c_str())) {//生成数独问题
         int n = 0, m = 0, r = 0;//分别为生成数量、生成难度、生成的问题中空白数
         Generator* g = new Generator();
         if (argc >= 3) {
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
             return 0;
         }
         if (argc == 3) {}
-        else if (argc == 4 && !strcmp(argv[3], "-u")) {//生成唯一解问题
+        else if (argc == 4 && !strcmp(argv[3], SudokuGameSolve.c_str())) {//生成唯一解问题
             for (int i = 0; i < n; i++) {
                 cout << "----------Generate uniGame:" << i + 1 << "----------" << endl;
                 g->GenUniPuzzle();
@@ -94,14 +94,14 @@ int main(int argc, char* argv[]) {
             }
             return 0;
         }
-        else if (argc == 5 && !strcmp(argv[3], "-m")) {//确定生成的难度
+        else if (argc == 5 && !strcmp(argv[3], SudokuGameDiff.c_str())) {//确定生成的难度
             m = atoi(argv[4]);
             if (m > 3 || m < 1) {
                 cout << "incorrect value of parameter m which should be in 1-3" << endl;
                 return 0;
             }
         }
-        else if (argc == 5 && !strcmp(argv[3], "-r")) {
+        else if (argc == 5 && !strcmp(argv[3], SudokuGameSpace.c_str())) {
             r = atoi(argv[4]);
             if (r > 55 || r < 20) {
                 cout << "incorrect value of parameter r which should be in 20-55" << endl;
